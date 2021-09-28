@@ -521,6 +521,7 @@ export default {
         options.shortcutsHint = options.shortcutsHint === undefined ? true : !!options.shortcutsHint;
         /** Defining save button */
         options.callBackSave = !options.callBackSave ? null : options.callBackSave;
+        options.callBackTooltip = !options.callBackTooltip ? null : options.callBackTooltip;
         /** Templates Array */
         options.templates = !options.templates ? null : options.templates;
         /** ETC */
@@ -582,7 +583,7 @@ export default {
         const lang = options.lang;
         const cmd = util.isOSX_IOS ? '⌘' : 'CTRL';
         const addShift = util.isOSX_IOS ? '⇧' : '+SHIFT';
-        const shortcutsDisable = !options.shortcutsHint ? ['bold', 'strike', 'underline', 'italic', 'undo', 'indent', 'save'] : options.shortcutsDisable;
+        const shortcutsDisable = !options.shortcutsHint ? ['bold', 'strike', 'underline', 'italic', 'undo', 'indent', 'save', 'tooltip'] : options.shortcutsDisable;
         const indentKey = options.rtl ? ['[',']'] : [']','['];
 
         return {
@@ -604,6 +605,7 @@ export default {
             preview: ['se-resizing-enabled', lang.toolbar.preview, 'preview', '', icons.preview],
             print: ['se-resizing-enabled', lang.toolbar.print, 'print', '', icons.print],
             save: ['_se_command_save se-resizing-enabled', lang.toolbar.save + '<span class="se-shortcut">' + (shortcutsDisable.indexOf('save') > -1 ? '' : cmd + '+<span class="se-shortcut-key">S</span>') + '</span>', 'save', '', icons.save],
+            tooltip: ['_se_command_tooltip se-resizing-enabled', lang.toolbar.tooltip + '<span class="se-shortcut">' + (shortcutsDisable.indexOf('tooltip') > -1 ? '' : cmd + '+<span class="se-shortcut-key">S</span>') + '</span>', 'tooltip', '', icons.tooltip],
             /** plugins - command */
             blockquote: ['', lang.toolbar.tag_blockquote, 'blockquote', 'command', icons.blockquote],
             /** plugins - submenu */

@@ -52,6 +52,7 @@ const _Context = function (element, cons, options) {
             undo: cons._toolBar.querySelector('._se_command_undo'),
             redo: cons._toolBar.querySelector('._se_command_redo'),
             save: cons._toolBar.querySelector('._se_command_save'),
+            tooltip: cons._toolBar.querySelector('._se_command_tooltip'),
             outdent: cons._toolBar.querySelector('._se_command_outdent'),
             indent: cons._toolBar.querySelector('._se_command_indent'),
             fullScreen: cons._toolBar.querySelector('._se_command_fullScreen'),
