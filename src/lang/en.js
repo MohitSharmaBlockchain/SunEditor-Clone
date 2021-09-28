@@ -26,6 +26,7 @@
         toolbar: {
             default: 'Default',
             save: 'Save',
+            tooltip: 'ToolTip',
             font: 'Font',
             formats: 'Formats',
             fontSize: 'Size',

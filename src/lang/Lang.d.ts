@@ -3,6 +3,7 @@ export interface Lang {
   toolbar: {
     default: string;
     save: string;
+    tooltip: string;
     font: string;
     formats: string;
     fontSize: string;
