@@ -4149,7 +4149,7 @@ export default function (context, pluginCallButtons, plugins, lang, options, _re
                     break;
                 case 'tooltip':
                     if(this.getSelection().anchorNode.textContent.substring(this.getSelection().extentOffset, this.getSelection().anchorOffset) !== ''){
-                    
+                        
                         function snapSelectionToWord() {
                             var sel;
                         
@@ -4200,7 +4200,7 @@ export default function (context, pluginCallButtons, plugins, lang, options, _re
 
                         var selectedText = this.getSelection().anchorNode.textContent.substring(this.getSelection().extentOffset, this.getSelection().anchorOffset)
                         var selectedTextParent = this.getSelection().anchorNode.parentNode
-                        selectedTextParent.innerHTML = selectedTextParent.innerHTML.replace(selectedText,`<span>${selectedText}</span>`)
+                        selectedTextParent.innerHTML = selectedTextParent.innerHTML.replace(selectedText,`<div class="position-relative"><span class="custom-tooltip-up">${selectedText}</span><span class="custom-tooltip none-important">${selectedText}</span></div>`)
                     }
                     break;
                 default : // 'STRONG', 'U', 'EM', 'DEL', 'SUB', 'SUP'..
@@ -4636,7 +4636,8 @@ export default function (context, pluginCallButtons, plugins, lang, options, _re
                     '<title>' + lang.toolbar.preview + '</title>' +
                     linkHTML +
                     '</head>' +
-                    '<body class="' + (options._printClass !== null ? options._printClass : options._editableClass) + '" style="margin:10px auto !important; height:auto !important; outline:1px dashed #ccc;">' + contentsHTML + '</body>' +
+                    '<body class="' + (options._printClass !== null ? options._printClass : options._editableClass) + '" style="margin:10px auto !important; height:auto !important; outline:1px dashed #ccc;">' + contentsHTML + '</body>' + 
+                    "<script>var custom_tooltip = document.querySelectorAll('.custom-tooltip');document.addEventListener('mousemove', fn, false);function fn(e) {for (var i=custom_tooltip.length; i--;) {custom_tooltip[i].style.left = e.pageX - 100 + 'px';custom_tooltip[i].style.top = '45px';} document.querySelectorAll('.custom-tooltip')[0].classList.remove('none-important')}</script>" +
                     '</html>'
                 );
             }
